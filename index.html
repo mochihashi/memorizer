@@ -295,7 +295,9 @@ function onload() {
     });
 }
 function goHome() {
-	location.href = (args['home'] ? args['home'] : 'index.html');
+	data = {};
+	show('index');
+	hide('test');
 }
 </script>
 </head>
