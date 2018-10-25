@@ -53,6 +53,9 @@ body { padding:0px; margin:0px; background: #fff; }
 }
 @font-face { font-family: 'Material Icons'; font-style: normal; font-weight: 400; src: url(lib/MaterialIcons-Regular.woff2) format('woff2'); }
 .material-icons { font-family: 'Material Icons'; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; }
+label.file { cursor: pointer; padding: 6px 10px 6px 10px; font-size: 14px; font-weight: normal; border: none; border-radius: 4px; color: #fff; background: #2196f3; box-shadow: 1px 1px 5px #666; height: 32px; white-space: nowrap; }
+label.file:hover { background: #1769aa; }
+label.file input { display: none; }
 </style>
 <script>
 function el(id) { return document.getElementById(id); }
@@ -307,8 +310,9 @@ function goHome() {
 <span id="logo">Memorizer</span>
 </div><!-- #index .head -->
 <div class="main">
+<h1>Select your file</h1>
 <form>
-select your [csv|txt] file: <input type="file" id="file" />
+select your [.csv | .txt] file: <label for="file" class="file">select file<input type="file" id="file" /></label>
 <br/>or drop your file here
 <br/>or copy cells in Excel and paste from clipboard (Ctrl + V)
 </form>
