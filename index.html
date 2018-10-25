@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Memorizer</title>
+<script type="text/javascript" src="lib/csv.min.js"></script>
+<script type="text/javascript" src="lib/encoding.min.js"></script>
+<style>
+body { padding:0px; margin:0px; background: #fff; }
+* { font-family:Roboto,Helvetica,DejaVu,Arial,sans-serif; box-sizing: border-box; }
+.head { width: 100%; background: #333; height: 44px; box-shadow: 1px 1px 4px #666; padding: 8px; color: #fff; }
+#logo { font-size: 24px; font-family: 'Courier', monospace; margin-left: 8px; }
+#index .main { padding: 20px; }
+#test .main table { width: 100%; }
+#test .main td { text-align: center; vertical-align: middle; }
+#prompt { width: 100%; text-align: left; font-size: 20px; padding: 10px; }
+#page { font-size: 12px; color: #666; }
+#question { font-size: 80px; padding: 80px 0px 80px 0px; }
+#question .ok i { font-size: 100px; color: #2489ce; width: 100px; }
+#answer { font-size: 40px; display: none; }
+#answer div, #answer p { padding: 0px; margin: 0px; display: inline-block; text-align: left; }
+#answer div p { margin: 20px 0px 20px 0px; line-height: 150%; }
+#end { font-size: 40px; display: none; }
+#test { display: none; }
+#test .head button { cursor: pointer; padding: 4px; font-size: 14px; border: none; background: none; border-radius: 4px; color: #fff; }
+#test .head button i { margin-top: -3px; vertical-align: middle; }
+#test .head button:hover { background: #555; }
+#test .head button[off=true] { color: #999; }
+#test .head #filename { margin: 0px 16px 0px 16px; }
+#test .head select { background: none; border: none; padding: 0px; padding-right: 30px; font-size: 14px; color: #fff; }
+#test .main button { cursor: pointer; padding: 20px; font-size: 30px; border: none; background: none; border-radius: 8px; color: #2489ce; white-space: nowrap; }
+#test .main button.primary { color: #f50057; }
+#test .main button:hover { background: #eee; }
+#test .main button i { font-size: 36px; }
+#test td.col-left { width: 80px; text-align: left; }
+#test td.col-right { width: 150px; text-align: right; }
+#test #answer-button { display: none; }
+#test .button-lower { margin-top: 50px; }
+@media only screen and (max-width: 480px) {
+	#test .main td { display: block; width: 100%; }
+	#test .main td.col-left { text-align: left; }
+	#test .main td.col-right { text-align: right; }
+	#test .button-lower { margin-top: 0px; }
+	#question { font-size: 60px; padding: 40px 0px 40px 0px; }
+}
+#test .head input[type="text"] { background: #333; color: #fff; border: 1px solid #fff; line-height: 1.4; border-radius: 4px; font-size: 14px; }
+#test .head input[type="text"]:hover, #test .head input[type="text"]:focus { border: 1px solid #2196f3; }
+#search-text { display: none; }
+@media only screen and (min-width: 1300px) {
+	#question { font-size: 120px; }
+	#answer { font-size: 60px; }
+}
+@font-face { font-family: 'Material Icons'; font-style: normal; font-weight: 400; src: url(lib/MaterialIcons-Regular.woff2) format('woff2'); }
+.material-icons { font-family: 'Material Icons'; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; }
+</style>
+<script>
+function el(id) { return document.getElementById(id); }
+function show(id, display) { el(id).style.display = display ? display : 'block'; }
+function hide(id) { el(id).style.display = 'none'; }
+var args = {}, data = {};
+if(location.search) {
+	var arr = location.search.substring(1).split('&');
+	for(var i = 0; i < arr.length; i++) {
+		var k = arr[i], v = null;
+		var p = k.indexOf('=');
+		if(p >= 0) { v = k.slice(p + 1); k = k.slice(0, p); }
+		args[k] = decodeURI(v);
+	}
+}
+function changeColumn(col) { data.col = parseInt(col); start(); }
+function toggleOption() { data.isNoOption = !data.isNoOption; el('button-option').setAttribute('off', data.isNoOption); start(); }
+function toggleSequential() { data.isSequential = !data.isSequential; el('button-random').setAttribute('off', data.isSequential); start(); }
+function toggleMute() { data.isMute = !data.isMute; el('button-mute').setAttribute('off', !data.isMute); }
+function toggleSearch() { data.isSearch = !data.isSearch; el('button-search').setAttribute('off', !data.isSearch); if(data.isSearch) { show('search-text', 'inline'); el('search-text').focus(); } else { hide('search-text'); } }
+function search() { data.searchText = el('search-text').value; start(); }
+function start() {
+	if(!data.col) data.col = 0;
+	var indexes = {};
+	data.test = [];
+	for(var i = 0; i < data.list.length; i++) {
+		if(data.isSearch && data.searchText) {
+			var isMatched = false;
+			for(var c = 0; c < data.title.length; c++) {
+				if(data.list[i][c] && data.list[i][c].indexOf(data.searchText) >= 0) { isMatched = true; break; }
+			}
+			if(!isMatched) continue;
+		}
+		var key = data.list[i][data.col]; if(!key) continue;
+		if(!indexes[key]) {
+			data.test.push({key: key, rows: []});
+			indexes[key] = data.test.length;
+		}
+		data.test[indexes[key] - 1].rows.push(data.list[i]);
+	}
+	if(data.test.length == 0) { alert('no data'); data.test = null; return; }
+	el('prompt').innerHTML = data.title[data.col == 0 ? 1 : 0] + ' ?';
+	if(!data.isSequential) shuffle(data.test);
+	for(var i = 0; i < data.test.length; i++) { data.test[i].index = i; }
+	hide('index');
+	show('test');
+	data.pos = 0;
+	data.pages = [0, data.test.length];
+	showQuestion();
+}
+function showQuestion(add, push) {
+	data.isAnswer = false;
+	if(push) data.test.push(data.test[data.pos]);
+	if(add) {
+		data.pos += add;
+		if(add == -1 && data.pos < data.test.length - 1) {
+			if(data.test[data.pos].key == data.test[data.test.length - 1].key) data.test.pop();
+		}
+	}
+	hide('answer'); hide('answer-button'); 
+	if(data.pos == data.test.length) {
+		data.isEnd = true;
+		show('end'); show('before');
+		hide('question'); hide('question-button'); hide('question-option'); hide('prompt'); hide('page');
+	} else {
+		data.isEnd = false;
+		el('question').innerHTML = data.test[data.pos].key;
+		if(add == 1 && data.pos == data.pages[data.pages.length - 1]) data.pages.push(data.test.length);
+		if(add == -1 && data.pos == data.pages[data.pages.length - 2] - 1) data.pages.pop();
+		var p = data.pages.length - 1, pages = '';
+		for(var i = 1; i < p; i++) { pages += (data.pages[i] - data.pages[i - 1]) + ' ... '; }
+		var len = data.pages[p] - data.pages[p - 1], pos = data.pos - data.pages[p - 1];
+		pages += '( ' + (pos + 1) + ' / ' + len + ' )';
+		if(data.test.length > data.pages[p]) { pages += ' ... ' + (data.test.length - data.pages[p]);}
+		el('page').innerHTML = pages;
+		if(data.isNoOption) {
+			show('question-button'); hide('question-option');
+		} else {
+			hide('question-button'); show('question-option');
+			var options = decideOptions(), div = el('question-option');
+			div.innerHTML = '';
+			for(var i = 0; i < options.length; i++) {
+				var index = options[i], rows = data.test[index].rows;
+				var isAnswer = (index == data.test[data.pos].index);
+				var text = '';
+				for(var r = 0; r < rows.length; r++) {
+					var str = rows[r][data.col == 0 ? 1 : 0]; if(!str) continue;
+					if(text) text += ', ';
+					text += str;
+				}
+				var button = document.createElement('button');
+				button.innerHTML = text;
+				button.onclick = (isAnswer ? clickDown : clickNext);
+				if(i > 0) div.appendChild(document.createElement('br'));
+				div.appendChild(button);
+			}
+		}
+		show('question'); show('prompt'); show('page');
+		if(data.pos > 0) { show('before'); } else { hide('before'); }
+		hide('end');
+	}
+	var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+	var windowWidth = window.innerWidth || document.documentElement.clientWidth;
+	el('test-text').height = (windowHeight - (windowWidth < 480 ? 250 : 100)) + 'px';
+}
+function decideOptions() {
+	var candidates = [], options = [], len = data.pages[1], answerIndex = data.test[data.pos].index;
+	for(var i = 0; i < len; i++) {
+		if(data.test[i].index != answerIndex) candidates.push(i);
+	}
+	shuffle(candidates);
+	options.push(answerIndex);
+	for(var i = 0; i < candidates.length && i < 3; i++) { options.push(candidates[i]); }
+	shuffle(options);
+	return options;
+}
+function showAnswer() {
+	data.isAnswer = true;
+	var html = '';
+	var rows = data.test[data.pos].rows;
+	for(var r = 0; r < rows.length; r++) {
+		if(r > 0) html += "<br/>";
+		html += "<p>";
+		for(var i = 0; i < data.title.length; i++) {
+			if(!rows[r][i]) continue;
+			if(data.title[i]) html += '[' + data.title[i] + '] ';
+			html += rows[r][i] + '<br/>';
+		}
+		html += "</p>";
+	}
+	el('answer').innerHTML = "<div>" + html + "</div>";
+	show('answer'); show('answer-button'); show('before');
+	hide('question'); hide('question-button'); hide('question-option'); hide('prompt'); hide('page');
+}
+function showBefore() {
+	if(data.isAnswer) showQuestion();
+	else if(data.pos > 0) showQuestion(-1);
+}
+function clickNext() { showNext(true); }
+function showNext(isClick) {
+	if(!data.isNoOption && !isClick) return;
+	if(data.isEnd) return;
+	if(!data.isAnswer) showAnswer();
+	else showQuestion(1, true);
+}
+function clickDown() { showDown(true); }
+function showDown(isClick) {
+	if(!data.isNoOption && !isClick) return;
+	if(data.isAnswer || data.isEnd) return;
+	el('question').innerHTML = '<span class="ok"><i class="material-icons">check_circle_outline</i></span>';
+	if(!data.isMute) { playAudio('lib/coin.mp3'); }
+	setTimeout(function(){ showQuestion(1); }, 1000);
+}
+function playAudio(file) { var a = new Audio(); a.src = file; a.play(); }
+function shuffle(arr) {
+	for(var i = arr.length - 1; i > 0; i--) {
+		var r = Math.floor(Math.random() * (i + 1));
+		var tmp = arr[i]; arr[i] = arr[r]; arr[r] = tmp;
+	}
+}
+function readFile(file) {
+	if(!file) return; if(file.type.indexOf('text/') < 0) { alert('This is not a text/csv file: ' + file.type); return; }
+	var reader = new FileReader(); reader.readAsArrayBuffer(file);
+	reader.addEventListener('load', function() { parseFile(file.name, new Uint8Array(reader.result)); });
+}
+function parseFile(name, unit8arr) {
+	var fullname = name;
+	var p = name.lastIndexOf('/'); if(p >= 0) { name = name.slice(p + 1); }
+	p = name.lastIndexOf('.'); if(p >= 0) { name = name.slice(0, p); }
+	el('filename').innerHTML = name;
+	var text, encoding = Encoding.detect(unit8arr);
+	if(encoding == 'UTF8') text = new TextDecoder("utf-8").decode(unit8arr);
+	else text = Encoding.convert(unit8arr, { to: 'unicode', from: encoding, type: 'string' });
+	parseText(text, fullname);
+}
+function parseText(text, name) {
+	var isCsv = text.indexOf('\t') < 0 || (name && name.slice(-4).toLowerCase() == '.csv');
+	var arr = CSV.parse(text, {delimiter: isCsv ? ',' : '\t'});
+	data = {};
+	if(arr.length < 1) { return; }
+	if(arr[0].length < 2) { alert('The number of columns must be over 2.'); return; }
+	data.title = arr[0];
+	data.list = arr.slice(1);
+	var select = el('select-column'); select.innerHTML = '';
+	for(var i = 0; i < data.title.length; i++) {
+		if(!data.title[i]) continue;
+		var option = document.createElement('option');
+        option.setAttribute('value', i);
+        option.innerHTML = data.title[i];
+        select.appendChild(option);
+	}
+	start();
+}
+function onload() {
+	el('file').addEventListener('change', function(e) { readFile(e.target.files[0]); });
+	if(args['file']) {
+		var url = args['file'];
+		url += (url.indexOf('?') < 0 ? '?' : '&') + '_cb=' + new Date().getTime();
+		var http = new XMLHttpRequest(); http.open('GET', url, true);
+		//http.overrideMimeType('text/plain; charset=x-user-defined');
+		http.responseType = "arraybuffer";
+		http.onload = function(e) { if(http.status == 200) parseFile(args['file'], new Uint8Array(http.response)); };
+		http.send();
+	}
+	document.addEventListener('keydown', function(e){
+		if(!data.test) return;
+		if(e.keyCode == 37) { // left
+			showBefore();
+		} else if(e.keyCode == 39) { // right
+			showNext();
+		} else if(e.keyCode == 40) { // down
+			showDown();
+		}
+	});
+	el('index').addEventListener('dragover', function(e){
+		e.stopPropagation(); e.preventDefault(); e.dataTransfer.dropEffect = 'copy';
+	});
+	el('index').addEventListener('drop', function(e){
+		e.stopPropagation(); e.preventDefault();
+		readFile(e.dataTransfer.files[0]);
+		var file = e.dataTransfer.files[0]; if(!file) return;
+	});
+	var touchStart, touchMove;
+	window.addEventListener("touchstart", function(e) { touchStart = e.touches[0]; touchMove = null; });
+	window.addEventListener("touchmove", function(e) { touchMove = e.changedTouches[0]; });
+    window.addEventListener("touchend", function(e) {
+    	if(!data.test || !touchStart || !touchMove) return;
+    	var isRightToLeft = (touchStart.pageX - touchMove.pageX > 50);
+    	var isLeftToRight = (touchMove.pageX - touchStart.pageX > 50);
+    	if(isLeftToRight) { showBefore(); }
+    	else if(isRightToLeft) { showNext(); }
+    });
+    window.addEventListener("paste", function(e) {
+    	if(data.test) return;
+		e.preventDefault(); e.stopPropagation();
+		var text;
+		if(e.clipboardData) text = e.clipboardData.getData('text/plain');
+		else if(window.clipboardData) text = window.clipboardData.getData('Text');
+		if(text) parseText(text);
+    });
+}
+function goHome() {
+	location.href = (args['home'] ? args['home'] : 'index.html');
+}
+</script>
+</head>
+<body onLoad="onload()">
+<div id="index">
+<div class="head">
+<span id="logo">Memorizer</span>
+</div><!-- #index .head -->
+<div class="main">
+<form>
+select your [csv|txt] file: <input type="file" id="file" />
+<br/>or drop your file here
+<br/>or copy cells in Excel and paste from clipboard
+</form>
+<h1>Read Me</h1>
+<ul>
+	<li><a target="_blank" href="https://github.com/mochihashi/memorizer/blob/master/README.md">English</a></li>
+</ul>
+</div><!-- #index .main -->
+</div><!-- #index -->
+
+<div id="test">
+<div class="head">
+	<button onclick="goHome();" title="home"><i class="material-icons">home</i></button>
+	<button onclick="start();" title="retry"><i class="material-icons">refresh</i></button>
+	<button onclick="toggleOption();" title="choose from options" id="button-option"><i class="material-icons">format_list_numbered</i></button>
+	<button onclick="toggleSequential();" title="random" id="button-random"><i class="material-icons">shuffle</i></button>
+	<button onclick="toggleMute();" title="mute" id="button-mute" off="true"><i class="material-icons">volume_off</i></button>
+	<span id="filename"></span>
+	<select onchange="changeColumn(this.options[this.selectedIndex].value);" id="select-column"></select>
+	<button onclick="toggleSearch();" title="filter by text" id="button-search" off="true"><i class="material-icons">search</i></button>
+	<input type="text" id="search-text" value="" size="20" onchange="search();" />
+</div><!-- #test .head -->
+<div class="main">
+<table id="test-table">
+<tr>
+<td class="col-left">
+	<button id="before" onclick="showBefore();"><i class="material-icons">navigate_before</i></button>
+</td>
+<td class="col-center" id="test-text">
+	<div id="prompt">prompt?</div>
+	<div id="question">question</div>
+	<div id="page">( 1 / 4 )</div>
+	<div id="answer">answer</div>
+	<div id="end">finished.<br/><button onclick="start();" title="retry"><i class="material-icons">refresh</i></button></div>
+</td>
+<td class="col-right">
+	<div id="question-button">
+		<button class="primary" onclick="showNext();" title="I'm not sure">...? <i class="material-icons">navigate_next</i></button>
+		<button class="button-lower" onclick="showDown();" title="I know">OK! <i class="material-icons">expand_more</i></button>
+	</div>
+	<div id="question-option"></div>
+	<div id="answer-button">
+		<button onclick="showNext(true);"><i class="material-icons">navigate_next</i></button>
+	</div>
+</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</table>
+</div><!-- #test .main -->
+</div><!-- #test -->
+</body>
+</html>
