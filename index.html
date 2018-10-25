@@ -295,7 +295,7 @@ function onload() {
     });
 }
 function goHome() {
-	data = {};
+	data.test = null;
 	show('index');
 	hide('test');
 }
@@ -310,8 +310,12 @@ function goHome() {
 <form>
 select your [csv|txt] file: <input type="file" id="file" />
 <br/>or drop your file here
-<br/>or copy cells in Excel and paste from clipboard
+<br/>or copy cells in Excel and paste from clipboard (Ctrl + V)
 </form>
+<h1>Read Me</h1>
+This is a tool that helps you to memorize words or something.
+<h1>Demo Page</h1>
+<a target="_blank" href="https://mochihashi.github.io/memorizer/sample.html">sample.html</a>
 <h1>Read Me</h1>
 <ul>
 	<li><a target="_blank" href="https://github.com/mochihashi/memorizer/blob/master/README.md">English</a></li>
