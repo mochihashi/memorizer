@@ -14,7 +14,7 @@ This is a tool that helps you to memorize words or something.
 
 1. Open <a target="_blank" href="https://mochihashi.github.io/memorizer/">index.html</a>
 2. Create a csv file with 2 columns and with a header row, and select it. The format of file is like:
-```html:sample.csv
+```text:sample.csv
 title1,title2
 value1-1,value1-2
 value2-1,value2-2
@@ -27,6 +27,6 @@ value3-1,value3-2
 
 * Edit your dictionary table in Excel, and then save this worksheet as a text file.
   1. Click "Save As" in the "File" menu to open the dialog.
-  2. In the "Save as type" box, choose to save your Excel file as "CSV (*.csv)" or "Unicode Text (*.txt)".
+  2. In the "Save as type" box, choose to save your Excel file as "CSV (\*.csv)" or "Unicode Text (\*.txt)".
 * Click the "select file" button in the index.html page, and select your text file.
 * Or you can directly paste your data after selecting and copying the cells in your worksheet.
