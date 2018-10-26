@@ -122,7 +122,7 @@ function showQuestion(add, push) {
 			if(data.test[data.pos].key == data.test[data.test.length - 1].key) data.test.pop();
 		}
 	}
-	hide('answer'); hide('answer-button'); 
+	hide('answer'); hide('answer-button');
 	if(data.pos == data.test.length) {
 		data.isEnd = true;
 		show('end'); show('before');
@@ -213,7 +213,7 @@ function showDown(isClick) {
 	if(data.isNoOption) {
 		showQuestion(1);
 	} else {
-		el('question').innerHTML = '<span class="ok"><i class="material-icons">check_circle_outline</i></span>';
+		el('question').innerHTML = '<span class="ok"><i class="material-icons">check_circle</i></span>';
 		setTimeout(function(){ showQuestion(1); }, 1000);
 	}
 }
@@ -289,21 +289,23 @@ function onload() {
 	var touchStart, touchMove;
 	window.addEventListener("touchstart", function(e) { touchStart = e.touches[0]; touchMove = null; });
 	window.addEventListener("touchmove", function(e) { touchMove = e.changedTouches[0]; });
-    window.addEventListener("touchend", function(e) {
-    	if(!data.test || !touchStart || !touchMove) return;
-    	var isRightToLeft = (touchStart.pageX - touchMove.pageX > 50);
-    	var isLeftToRight = (touchMove.pageX - touchStart.pageX > 50);
-    	if(isLeftToRight) { showBefore(); }
-    	else if(isRightToLeft) { showNext(); }
-    });
-    window.addEventListener("paste", function(e) {
-    	if(data.test) return;
+	window.addEventListener("touchend", function(e) {
+		if(!data.test || !touchStart || !touchMove) return;
+		var isRightToLeft = (touchStart.pageX - touchMove.pageX > 100);
+		var isLeftToRight = (touchMove.pageX - touchStart.pageX > 100);
+		var isDownToUp = (touchMove.pageY - touchStart.pageY > 100);
+		var isUpToDown = (touchMove.pageY - touchStart.pageY > 100);
+		if(isLeftToRight && !isDownToUp && !isUpToDown) { showBefore(); }
+		else if(isRightToLeft && !isDownToUp && !isUpToDown) { showNext(); }
+	});
+	window.addEventListener("paste", function(e) {
+		if(data.test) return;
 		e.preventDefault(); e.stopPropagation();
 		var text;
 		if(e.clipboardData) text = e.clipboardData.getData('text/plain');
 		else if(window.clipboardData) text = window.clipboardData.getData('Text');
 		if(text) parseText(text);
-    });
+	});
 }
 function goHome() {
 	data.test = null;
