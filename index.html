@@ -112,7 +112,7 @@ function start() {
 function showQuestion(add, push) {
 	var windowWidth = window.innerWidth || document.documentElement.clientWidth;
 	var windowHeight = window.innerHeight || document.documentElement.clientHeight;
-	var isMobile = (windowWidth < 600);
+	var isMobile = (windowWidth <= 600);
 	el('test-text').height = isMobile ? 'auto' : (windowHeight - 100) + 'px';
 	data.isAnswer = false;
 	if(push) data.test.push(data.test[data.pos]);
