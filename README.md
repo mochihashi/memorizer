@@ -26,22 +26,22 @@ This is a tool that helps you to memorize words or something.
 | No | No |
 
 2. Open <a target="_blank" href="https://mochihashi.github.io/memorizer/">index.html</a> and paste from clipboard (Ctrl+V).
-	<img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/paste.png">
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/paste.png"></kbd>
 
 3. Then the first question will be displayed. Choose the correct answer between options.
-	<img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/question.png">
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/question.png"></kbd>
 
 4. If you choose a wrong answer, the correct answer will be displayed, and this question will be repeated again later.
-	<img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/answer.png">
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/answer.png"></kbd>
 
 5. Questions will continue until you finish choosing every correct answer at each question.
-	<img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/finished.png">
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/finished.png"></kbd>
 
 6. You can change the column of question,
-	<img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/reverse.png">
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/reverse.png"></kbd>
 
 7. And question and answer will be reversed.
-	<img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/question2.png">
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/question2.png"></kbd>
 
 # Input Data From File
 
@@ -50,7 +50,7 @@ This is a tool that helps you to memorize words or something.
 1. Edit your dictionary table in Excel, and then save this worksheet as a text file.
   * Click "Save As" in the "File" menu to open the dialog.
   * In the "Save as type" box, choose to save your Excel file as "CSV (.csv)" or "Unicode Text (.txt)".
-	<img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/save-as-csv.png">
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/save-as-csv.png"></kbd>
 
 2. Click the "select file" button in the index.html page, and select the file you saved.
-	<img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/select-file.png">
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/select-file.png"></kbd>
