@@ -53,4 +53,4 @@ This is a tool that helps you to memorize words or something.
 > <img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/save-as-csv.png">
 
 2. Click the "select file" button in the index.html page, and select the file you saved.
-> <img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/select-file.png">
+	<img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/select-file.png">
