@@ -8,9 +8,9 @@
 <script type="text/javascript" src="lib/encoding.min.js"></script>
 <style>
 body { padding:0px; margin:0px; background: #fff; }
-* { font-family:Roboto,Helvetica,DejaVu,Arial,sans-serif; box-sizing: border-box; }
-.head { width: 100%; background: #333; height: 44px; box-shadow: 1px 1px 4px #666; padding: 8px; color: #fff; }
-#logo { font-size: 24px; font-family: 'Courier', monospace; margin-left: 8px; }
+* { font-family:Roboto,Helvetica,Arial,sans-serif; box-sizing: border-box; }
+.head { width: 100%; background: #333; box-shadow: 1px 1px 4px #666; padding: 8px; color: #fff; }
+#logo { font-size: 24px; font-family: 'Arial'; letter-spacing: 4px; margin-left: 8px; }
 #index .main { padding: 20px; }
 #test .main table { width: 100%; }
 #test .main td { text-align: center; vertical-align: middle; }
@@ -238,11 +238,11 @@ function parseFile(name, unit8arr) {
 function parseText(text, name) {
 	var isCsv = text.indexOf('\t') < 0 || (name && name.slice(-4).toLowerCase() == '.csv');
 	var arr = CSV.parse(text, {delimiter: isCsv ? ',' : '\t'});
-	data = {};
 	if(arr.length < 1) { return; }
 	if(arr[0].length < 2) { alert('The number of columns must be over 2.'); return; }
 	data.title = arr[0];
 	data.list = arr.slice(1);
+	data.col = 0;
 	var select = el('select-column'); select.innerHTML = '';
 	for(var i = 0; i < data.title.length; i++) {
 		if(!data.title[i]) continue;
@@ -318,7 +318,8 @@ function goHome() {
 <form>
 select your [.csv | .txt] file: <label for="file" class="file">select file<input type="file" id="file" /></label>
 <br/>or drop your file here
-<br/>or copy cells in Excel and paste from clipboard (Ctrl + V)
+<br/>or copy cells in Excel and paste from clipboard here.
+<br/><textarea rows="4" cols="40"></textarea>
 </form>
 <h1>What's this?</h1>
 This is a tool that helps you to memorize words or something.
@@ -328,6 +329,7 @@ This is a tool that helps you to memorize words or something.
 <a target="_blank" href="https://github.com/mochihashi/memorizer/blob/master/README.md">English</a>
 <br/><a target="_blank" href="https://github.com/mochihashi/memorizer/blob/master/README.cn.md">中文</a>
 <br/><a target="_blank" href="https://github.com/mochihashi/memorizer/blob/master/README.jp.md">日本語</a>
+<br/><a target="_blank" href="https://github.com/mochihashi/memorizer/blob/master/README.kr.md">한국어</a>
 </div><!-- #index .main -->
 </div><!-- #index -->
 
