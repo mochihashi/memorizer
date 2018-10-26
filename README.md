@@ -3,7 +3,7 @@ This is a tool that helps you to memorize words or something.
 
 # Feature
 
-* You can memorize your own words, by creating a CSV file and selecting it.
+* You can memorize your own words, by creating your table in Excel and pasting it.
 * You can use when offline. Download <a href="memorizer.zip" download="memorizer.zip">memorizer.zip</a>, and open index.html in it by your browser.
 
 # Demo Page
