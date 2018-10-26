@@ -45,9 +45,9 @@
 
 # 파일에서 입력하기
 
-클립보드에서 붙이거나 사진파일을 선택해도 됩니다.
+클립보드에서 붙이는 방법 이외에 사진파일을 선택해도 됩니다.
 
-1. Excel애서 사전파일을 편집하여 워크시트를 텍스트파일로 저장합니다.
+1. Excel에서 사전파일을 편집하여 워크시트를 텍스트파일로 저장합니다.
   *  「파일」 메뉴에서  「새이름으로 저장」을 누르면 다이얼로그가 열립니다.
   *  「포맷」 란에、「CSV (.csv)」또는「Unicode텍스트 (.txt)」를 선택하고 저장합니다.
 	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/save-as-csv.png"></kbd>

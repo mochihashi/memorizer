@@ -209,9 +209,13 @@ function clickDown() { showDown(true); }
 function showDown(isClick) {
 	if(!data.isNoOption && !isClick) return;
 	if(data.isAnswer || data.isEnd) return;
-	el('question').innerHTML = '<span class="ok"><i class="material-icons">check_circle_outline</i></span>';
 	if(!data.isMute) { playAudio('lib/coin.mp3'); }
-	setTimeout(function(){ showQuestion(1); }, 1000);
+	if(data.isNoOption) {
+		showQuestion(1);
+	} else {
+		el('question').innerHTML = '<span class="ok"><i class="material-icons">check_circle_outline</i></span>';
+		setTimeout(function(){ showQuestion(1); }, 1000);
+	}
 }
 function playAudio(file) { var a = new Audio(); a.src = file; a.volume = 0.5; a.play(); }
 function shuffle(arr) {
