@@ -12,7 +12,7 @@
 
 # 사용 방법
 
-1. Excel로 사전 테이블을 만들고 클립보드에 복사합니다. 테이블은 2열이상, 재1행은 제목 이름을 입력합니다. 사전 테이블의 예입니다:
+1. Excel로 사전 테이블을 만들고 클립보드에 복사합니다(Ctrl+C). 테이블은 2열이상, 재1행은 제목 이름을 입력합니다. 사전 테이블의 예입니다:
 
 | English | Spanish |
 | ---- | ---- |
@@ -25,7 +25,7 @@
 | Yes | Si |
 | No | No |
 
-2. 브라우저로 <a target="_blank" href="https://mochihashi.github.io/memorizer/">index.html</a> 를 연 후, 1번에서 복사한 클립보드의 내용을 붙입니다.(Ctrl+V).<br/>
+2. 브라우저로 <a target="_blank" href="https://mochihashi.github.io/memorizer/">index.html</a> 를 연 후, 1번에서 복사한 클립보드의 내용을 붙입니다(Ctrl+V).<br/>
 	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/paste.png"></kbd>
 
 3. 질문이 표시되면 정답을 선택합니다.<br/>

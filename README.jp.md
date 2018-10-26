@@ -12,7 +12,7 @@
 
 # 使い方
 
-1. Excelで辞書テーブルを作って、クリップボードにコピーします。辞書テーブルは２列以上とし、１行目にタイトルを入れてください。辞書テーブルの例です:
+1. Excelで辞書テーブルを作って、クリップボードにコピーします(Ctrl+C)。辞書テーブルは２列以上とし、１行目にタイトルを入れてください。辞書テーブルの例です:
 
 | English | Spanish |
 | ---- | ---- |
@@ -25,7 +25,7 @@
 | Yes | Si |
 | No | No |
 
-2. ブラウザで、 <a target="_blank" href="https://mochihashi.github.io/memorizer/">index.html</a> を開き、クリップボードから貼り付けます。(Ctrl+V).<br/>
+2. ブラウザで、 <a target="_blank" href="https://mochihashi.github.io/memorizer/">index.html</a> を開き、クリップボードの内容を貼り付けます(Ctrl+V)。<br/>
 	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/paste.png"></kbd>
 
 3. 最初の質問が表示されますので、正しい答えを選択肢から選んでください。<br/>
@@ -37,7 +37,7 @@
 5. すべての質問に正答すると、質問が終わります。<br/>
 	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/finished.png"></kbd>
 
-6. タイトルの列名を変更することで、<br/>
+6. タイトルの列を変更することで、<br/>
 	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/change-column.png"></kbd>
 
 7. 逆引きの質問に変えることもできます。<br/>

@@ -12,7 +12,7 @@
 
 # 如何使用
 
-1. 用Excel造词语表，然后复制到剪贴板。词语表有至少两个列，第一行是标题名字。这是词语表的例子：
+1. 用Excel造词语表，然后复制到剪贴板(Ctrl+C)。词语表有至少两个列，第一行是标题名字。这是词语表的例子：
 
 | English | Spanish |
 | ---- | ---- |
@@ -25,7 +25,7 @@
 | Yes | Si |
 | No | No |
 
-2. 用游览器打开 <a target="_blank" href="https://mochihashi.github.io/memorizer/">index.html</a> 从剪贴板粘贴。(Ctrl+V).<br/>
+2. 用游览器打开 <a target="_blank" href="https://mochihashi.github.io/memorizer/">index.html</a> 粘贴剪贴板的内容(Ctrl+V)。<br/>
 	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/paste.png"></kbd>
 
 3. 看到第一问题之后，从选项中选择答案。<br/>
