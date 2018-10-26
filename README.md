@@ -41,12 +41,16 @@ This is a tool that helps you to memorize words or something.
 <img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/reverse.png">
 
 7. And question and answer will be reversed.
-<img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/reverse.png">
+<img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/question2.png">
 
 # Input Data From File
 
 * Instead of pasting data from clipboard, you can select your dictionary file.
-* Edit your dictionary table in Excel, and then save this worksheet as a text file.
+
+1. Edit your dictionary table in Excel, and then save this worksheet as a text file.
   1. Click "Save As" in the "File" menu to open the dialog.
   2. In the "Save as type" box, choose to save your Excel file as "CSV (.csv)" or "Unicode Text (.txt)".
-* Click the "select file" button in the index.html page, and select the file you saved.
+<img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/save-as-csv.png">
+
+2. Click the "select file" button in the index.html page, and select the file you saved.
+<img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/select-file.png">
