@@ -13,6 +13,7 @@ This is a tool that helps you to memorize words or something.
 # Getting Started
 
 1. Prepare your dictionary table in Excel, then copy to clipboard. Note that a dictionary table must have more than two columns, and a title row. This is a sample:
+
 | English | Spanish |
 | ---- | ---- |
 | Hello | Hola |
