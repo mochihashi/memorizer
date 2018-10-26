@@ -29,20 +29,21 @@ body { padding:0px; margin:0px; background: #fff; }
 #test .head button[off=true] { color: #999; }
 #test .head #filename { margin: 0px 16px 0px 16px; }
 #test .head select { background: none; border: none; padding: 0px; padding-right: 30px; font-size: 14px; color: #fff; }
-#test .main button { cursor: pointer; padding: 20px; font-size: 30px; border: none; background: none; border-radius: 8px; color: #2489ce; white-space: nowrap; }
+#test .main button { cursor: pointer; padding: 20px; font-size: 30px; border: none; background: none; border-radius: 8px; color: #2489ce; }
 #test .main button.primary { color: #f50057; }
 #test .main button:hover { background: #eee; }
 #test .main button i { font-size: 36px; }
 #test td.col-left { width: 80px; text-align: left; }
-#test td.col-right { width: 150px; text-align: right; }
+#test td.col-right { text-align: right; }
 #test #answer-button { display: none; }
 #test .button-lower { margin-top: 50px; }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
 	#test .main td { display: block; width: 100%; }
 	#test .main td.col-left { text-align: left; }
 	#test .main td.col-right { text-align: right; }
 	#test .button-lower { margin-top: 0px; }
 	#question { font-size: 60px; padding: 40px 0px 40px 0px; }
+	#filename { display: none; }
 }
 #test .head input[type="text"] { background: #333; color: #fff; border: 1px solid #fff; line-height: 1.4; border-radius: 4px; font-size: 14px; }
 #test .head input[type="text"]:hover, #test .head input[type="text"]:focus { border: 1px solid #2196f3; }
@@ -50,6 +51,7 @@ body { padding:0px; margin:0px; background: #fff; }
 @media only screen and (min-width: 1300px) {
 	#question { font-size: 120px; }
 	#answer { font-size: 60px; }
+	#test .main button { font-size: 50px; }
 }
 @font-face { font-family: 'Material Icons'; font-style: normal; font-weight: 400; src: url(lib/MaterialIcons-Regular.woff2) format('woff2'); }
 .material-icons { font-family: 'Material Icons'; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; }
@@ -72,7 +74,7 @@ if(location.search) {
 	}
 }
 function changeColumn(col) { data.col = parseInt(col); start(); }
-function toggleOption() { data.isNoOption = !data.isNoOption; el('button-option').setAttribute('off', data.isNoOption); start(); }
+function toggleOption() { data.isNoOption = !data.isNoOption; el('button-option').setAttribute('off', !data.isNoOption); start(); }
 function toggleSequential() { data.isSequential = !data.isSequential; el('button-random').setAttribute('off', data.isSequential); start(); }
 function toggleMute() { data.isMute = !data.isMute; el('button-mute').setAttribute('off', !data.isMute); }
 function toggleSearch() { data.isSearch = !data.isSearch; el('button-search').setAttribute('off', !data.isSearch); if(data.isSearch) { show('search-text', 'inline'); el('search-text').focus(); } else { hide('search-text'); } }
@@ -97,7 +99,8 @@ function start() {
 		data.test[indexes[key] - 1].rows.push(data.list[i]);
 	}
 	if(data.test.length == 0) { alert('no data'); data.test = null; return; }
-	el('prompt').innerHTML = data.title[data.col == 0 ? 1 : 0] + ' ?';
+	var prompt = data.title[data.col == 0 ? 1 : 0];
+	el('prompt').innerHTML = prompt ? (prompt + ' ?') : '';
 	if(!data.isSequential) shuffle(data.test);
 	for(var i = 0; i < data.test.length; i++) { data.test[i].index = i; }
 	hide('index');
@@ -107,6 +110,10 @@ function start() {
 	showQuestion();
 }
 function showQuestion(add, push) {
+	var windowWidth = window.innerWidth || document.documentElement.clientWidth;
+	var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+	var isMobile = (windowWidth < 600);
+	el('test-text').height = isMobile ? 'auto' : (windowHeight - 100) + 'px';
 	data.isAnswer = false;
 	if(push) data.test.push(data.test[data.pos]);
 	if(add) {
@@ -149,7 +156,7 @@ function showQuestion(add, push) {
 				var button = document.createElement('button');
 				button.innerHTML = text;
 				button.onclick = (isAnswer ? clickDown : clickNext);
-				if(i > 0) div.appendChild(document.createElement('br'));
+				if(!isMobile && i > 0) div.appendChild(document.createElement('br'));
 				div.appendChild(button);
 			}
 		}
@@ -157,9 +164,6 @@ function showQuestion(add, push) {
 		if(data.pos > 0) { show('before'); } else { hide('before'); }
 		hide('end');
 	}
-	var windowHeight = window.innerHeight || document.documentElement.clientHeight;
-	var windowWidth = window.innerWidth || document.documentElement.clientWidth;
-	el('test-text').height = (windowHeight - (windowWidth < 480 ? 250 : 100)) + 'px';
 }
 function decideOptions() {
 	var candidates = [], options = [], len = data.pages[1], answerIndex = data.test[data.pos].index;
@@ -196,7 +200,7 @@ function showBefore() {
 }
 function clickNext() { showNext(true); }
 function showNext(isClick) {
-	if(!data.isNoOption && !isClick) return;
+	if(!data.isNoOption && !isClick && !data.isAnswer) return;
 	if(data.isEnd) return;
 	if(!data.isAnswer) showAnswer();
 	else showQuestion(1, true);
@@ -209,7 +213,7 @@ function showDown(isClick) {
 	if(!data.isMute) { playAudio('lib/coin.mp3'); }
 	setTimeout(function(){ showQuestion(1); }, 1000);
 }
-function playAudio(file) { var a = new Audio(); a.src = file; a.play(); }
+function playAudio(file) { var a = new Audio(); a.src = file; a.volume = 0.5; a.play(); }
 function shuffle(arr) {
 	for(var i = arr.length - 1; i > 0; i--) {
 		var r = Math.floor(Math.random() * (i + 1));
@@ -328,14 +332,14 @@ This is a tool that helps you to memorize words or something.
 
 <div id="test">
 <div class="head">
-	<button onclick="goHome();" title="home"><i class="material-icons">home</i></button>
-	<button onclick="start();" title="retry"><i class="material-icons">refresh</i></button>
-	<button onclick="toggleOption();" title="choose from options" id="button-option"><i class="material-icons">format_list_numbered</i></button>
-	<button onclick="toggleSequential();" title="random" id="button-random"><i class="material-icons">shuffle</i></button>
-	<button onclick="toggleMute();" title="mute" id="button-mute" off="true"><i class="material-icons">volume_off</i></button>
+	<button onclick="goHome();" title="Home"><i class="material-icons">home</i></button>
+	<button onclick="start();" title="Retry"><i class="material-icons">refresh</i></button>
+	<button onclick="toggleOption();" title="Hide the answer options" id="button-option" off="true"><i class="material-icons">visibility_off</i></button>
+	<button onclick="toggleSequential();" title="Show questions at random" id="button-random"><i class="material-icons">shuffle</i></button>
+	<button onclick="toggleMute();" title="Mute the correct answer sound" id="button-mute" off="true"><i class="material-icons">volume_off</i></button>
 	<span id="filename"></span>
 	<select onchange="changeColumn(this.options[this.selectedIndex].value);" id="select-column"></select>
-	<button onclick="toggleSearch();" title="filter by text" id="button-search" off="true"><i class="material-icons">search</i></button>
+	<button onclick="toggleSearch();" title="Filter by text" id="button-search" off="true"><i class="material-icons">search</i></button>
 	<input type="text" id="search-text" value="" size="20" onchange="search();" />
 </div><!-- #test .head -->
 <div class="main">
