@@ -3,8 +3,8 @@
 
 # 특징
 
-* 자신이 외우고 싶은 단어리스트를 Excel로 만들고 지정할 수 있습니다.
-* 오프라인 경우에도 사용할 수 있습니다. <a href="memorizer.zip" download="memorizer.zip">여기서 다운로드</a>해서, 안에있는 index.html 를 브라우저로 열어주세요.
+* 자신이 외우고 싶은 단어리스트를 Excel로 만들고 저장할 수 있습니다.
+* 오프라인 경우에도 사용할 수 있습니다. <a href="memorizer.zip" download="memorizer.zip">여기서 다운로드</a>해서, 안에있는 index.html 를 브라우저로 엽니다.
 
 # 데모 페이지
 
@@ -49,7 +49,7 @@
 
 1. Excel애서 사전파일을 편집하여 워크시트를 텍스트파일로 저장합니다.
   *  「파일」 메뉴에서  「새이름으로 저장」을 누르면 다이얼로그가 열립니다.
-  * 포맷」 란에、「CSV (.csv)」또는「Unicode텍스트 (.txt)」를 선택하고 저장합니다.
+  *  「포맷」 란에、「CSV (.csv)」또는「Unicode텍스트 (.txt)」를 선택하고 저장합니다.
 	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/save-as-csv.png"></kbd>
 
 2. index.html패아지에서, 「select file」버튼을 누르고、저장한 텍스트파일을 선택합니다.
