@@ -12,21 +12,45 @@
 
 # 使い方
 
-1. ブラウザで、<a target="_blank" href="https://mochihashi.github.io/memorizer/">index.html</a>を開きます。
-2. CSVファイルを作成して、選択します。CSVファイルは２列以上必要で、１行目をヘッダ行にします。こんな形式です:
-```text:sample.csv
-title1,title2
-value1-1,value1-2
-value2-1,value2-2
-value3-1,value3-2
-```
-3. 質問が表示されたら、選択肢から正しい答えを選びます。もし間違えた場合、正しい答えが表示され、その質問があとで繰り返されます。
-4. すべての質問に正答するまで、質問が続きます。
+1. Excelで辞書テーブルを作って、クリップボードにコピーします。辞書テーブルは２列以上とし、１行目にタイトルを入れてください。辞書テーブルの例です:
 
-# 入力ファイル
+| English | Spanish |
+| ---- | ---- |
+| Hello | Hola |
+| Good morning | Buenos días |
+| Goodbye | Adiós |
+| I don't know | No lo sé |
+| Sorry | Lo siento |
+| Thank you | Gracias |
+| Yes | Si |
+| No | No |
 
-* Excelで辞書ファイルを編集し、ワークシートをテキストファイルとして保存してください。
-  1. 「ファイル」メニューから「名前を付けて保存」をクリックすると、ダイアログが開きます。
-  2. 「フォーマット」欄で、「CSV (.csv)」または「Unicodeテキスト (.txt)」を選択して保存します。
-* index.htmlページで、「select file」ボタンをクリックし、保存したテキストファイルを選択します。
-* または、ワークシートのセルを選択してコピーし、index.htmlページに直接貼り付ける(Ctrl+V)ことも可能です。
+2. ブラウザで、 <a target="_blank" href="https://mochihashi.github.io/memorizer/">index.html</a> を開き、クリップボードから貼り付けます。(Ctrl+V).<br/>
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/paste.png"></kbd>
+
+3. 最初の質問が表示されますので、正しい答えを選択肢から選んでください。<br/>
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/question.png"></kbd>
+
+4. 間違えた場合、正しい答えが表示され、その質問はまたあとで繰り返されます。<br/>
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/answer.png"></kbd>
+
+5. すべての質問に正答すると、質問が終わります。<br/>
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/finished.png"></kbd>
+
+6. タイトルの列名を変更することで、<br/>
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/change-column.png"></kbd>
+
+7. 逆引きの質問に変えることもできます。<br/>
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/question2.png"></kbd>
+
+# ファイルから入力する
+
+クリップボードからの貼り付け以外に、辞書ファイルを選択することもできます。
+
+1. Excelで辞書ファイルを編集し、ワークシートをテキストファイルとして保存してください。
+  *  「ファイル」メニューから「名前を付けて保存」をクリックすると、ダイアログが開きます。
+  * 「フォーマット」欄で、「CSV (.csv)」または「Unicodeテキスト (.txt)」を選択して保存します。<br/>
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/save-as-csv.png"></kbd>
+
+2. index.htmlページで、「select file」ボタンをクリックし、保存したテキストファイルを選択します。<br/>
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/select-file.png"></kbd>

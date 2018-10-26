@@ -38,14 +38,14 @@ This is a tool that helps you to memorize words or something.
 	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/finished.png"></kbd>
 
 6. You can change the column of question,<br/>
-	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/reverse.png"></kbd>
+	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/change-column.png"></kbd>
 
 7. And question and answer will be reversed.<br/>
 	<kbd><img src="https://raw.githubusercontent.com/mochihashi/memorizer/master/images/question2.png"></kbd>
 
 # Input Data From File
 
-* Instead of pasting data from clipboard, you can select your dictionary file.
+Instead of pasting data from clipboard, you can select your dictionary file.
 
 1. Edit your dictionary table in Excel, and then save this worksheet as a text file.
   * Click "Save As" in the "File" menu to open the dialog.
