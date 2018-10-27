@@ -1,5 +1,6 @@
 # Memorizer
 単語などを覚えるのに便利なツールです。
+<a target="_blank" href="https://mochihashi.github.io/memorizer/">index.html</a> - https://mochihashi.github.io/memorizer/
 
 # 特徴
 

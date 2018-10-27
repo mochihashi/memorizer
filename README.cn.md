@@ -1,5 +1,6 @@
 # Memorizer
 这是为了记住生词之类的时候有用的工具。
+<a target="_blank" href="https://mochihashi.github.io/memorizer/">index.html</a> - https://mochihashi.github.io/memorizer/
 
 # 特点
 

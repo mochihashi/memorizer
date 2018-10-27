@@ -1,5 +1,6 @@
 # Memorizer
 This is a tool that helps you to memorize words or something.
+<a target="_blank" href="https://mochihashi.github.io/memorizer/">index.html</a> - https://mochihashi.github.io/memorizer/
 
 # Feature
 
