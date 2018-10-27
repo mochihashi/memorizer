@@ -235,16 +235,16 @@ function readFile(file) {
 	reader.addEventListener('load', function() { parseFile(file.name, new Uint8Array(reader.result)); });
 }
 function parseFile(name, unit8arr) {
-	var fullname = name;
-	var p = name.lastIndexOf('/'); if(p >= 0) { name = name.slice(p + 1); }
-	p = name.lastIndexOf('.'); if(p >= 0) { name = name.slice(0, p); }
+	var shortName = name;
+	var p = shortName.lastIndexOf('/'); if(p >= 0) { shortName = shortName.slice(p + 1); }
+	p = shortName.lastIndexOf('.'); if(p >= 0) { shortName = shortName.slice(0, p); }
 	var text, encoding = Encoding.detect(unit8arr);
 	if(encoding == 'UTF8') text = new TextDecoder("utf-8").decode(unit8arr);
 	else text = Encoding.convert(unit8arr, { to: 'unicode', from: encoding, type: 'string' });
-	parseText(text, fullname);
+	parseText(text, name, shortName);
 }
-function parseText(text, name) {
-	if(name) { document.title = name + " - Memorizer"; el('filename').innerHTML = name; }
+function parseText(text, name, shortName) {
+	if(shortName) { document.title = shortName + " - Memorizer"; el('filename').innerHTML = shortName; }
 	var isCsv = text.indexOf('\t') < 0 || (name && name.slice(-4).toLowerCase() == '.csv');
 	var arr = CSV.parse(text, {delimiter: isCsv ? ',' : '\t'});
 	if(arr.length < 1) { return; }
