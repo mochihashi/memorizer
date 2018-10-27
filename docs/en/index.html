@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="../../favicon.ico">
+<title>Memorizer - About</title>
+
+<meta name="keywords" content="memorizer,easy learning,free tool,foreign language,new words" />
+<meta name="description" content="Memorizer: A free tool for learning words of any kind" />
+<meta property="og:url" content="https://mochihashi.github.io/memorizer/docs/en/" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Memorizer: A free tool for learning words of any kind" />
+<meta property="og:description" content="You can easily memorize your own words, by creating your table in Excel and pasting it." />
+<meta property="og:site_name" content="mochihashi" />
+<meta property="og:image" content="https://mochihashi.github.io/memorizer/docs/images/image.png" />
+<meta name="twitter:card" content="summary">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/icon.css">
+</head>
+<body>
+<div class="head">
+<i class="material-icons">attach_file</i><span id="logo">Memorizer</span>
+</div>
+<div class="main">
+<div class="top-nav">
+English
+&nbsp; <a href="../cn/">中文</a>
+&nbsp; <a href="../jp/">日本語</a>
+&nbsp; <a href="../kr/">한국어</a>
+</div>
+
+<h1>Memorizer: A free tool for learning words of any kind.</h1>
+
+<ul class="shareList">
+  <li class="shareList__item"><a class="shareList__link icon-facebook" href="http://www.facebook.com/share.php?u=https%3A%2F%2Fmochihashi.github.io%2Fmemorizer%2Fdocs%2Fen%2F" target="_blank" rel="nofollow" title="Facebook"></a></li>
+  <li class="shareList__item"><a class="shareList__link icon-twitter" href="https://twiter.com/share?url=https%3A%2F%2Fmochihashi.github.io%2Fmemorizer%2Fdocs%2Fen%2F" text="Memorizer: A free tool for learning words of any kind" target="_blank" rel="nofollow" title="Twitter"></a></li>
+  <li class="shareList__item"><a class="shareList__link icon-pocket" href="http://getpocket.com/edit?url=https%3A%2F%2Fmochihashi.github.io%2Fmemorizer%2Fdocs%2Fen%2F&title=Memorizer%3a%20A%20free%20tool%20for%20learning%20words%20of%20any%20kind" target="_blank" rel="nofollow" title="Pocket"></a></li>
+  <li class="shareList__item"><a class="shareList__link icon-feedly" href="https://feedly.com/i/subscription/feed/https%3A%2F%2Fmochihashi.github.io%2Fmemorizer%2Fdocs%2Fen%2F" target="_blank" rel="nofollow" title="Feedly"></a></li>
+</ul>
+
+<a target="_blank" href="../../">main page</a> - https://mochihashi.github.io/memorizer/
+<br/><kbd><img src="../images/image.png"></kbd>
+
+<h2>Feature</h2>
+
+<ul>
+<li>You can memorize your own words, by creating your table in Excel and pasting it.</li>
+<li>You can use when offline. Download <a href="../memorizer.zip" download="memorizer.zip">memorizer.zip</a>, and open index.html in it by your browser.</li>
+</ul>
+
+<h2>Demo Page</h2>
+
+<a target="_blank" href="../sample.html">sample.html</a>
+
+<h2>Getting Started</h2>
+
+<ol type="1">
+<li>Prepare your dictionary table in Excel, then copy to clipboard (Ctrl+C). Note that a dictionary table must have more than two columns, and a title row. This is a sample:
+
+<table>
+<tr><th>English</th><th>Spanish</th></tr>
+<tr><td>Hello</td><td>Hola</td></tr>
+<tr><td>Good morning</td><td>Buenos días</td></tr>
+<tr><td>Goodbye</td><td>Adiós</td></tr>
+<tr><td>I don't know</td><td>No lo sé</td></tr>
+<tr><td>Sorry</td><td>Lo siento</td></tr>
+<tr><td>Thank you</td><td>Gracias</td></tr>
+<tr><td>Yes</td><td>Si</td></tr>
+<tr><td>No</td><td>No</td></tr>
+</table>
+
+<li>Open <a target="_blank" href="../../">main page</a>, paste from clipboard in the text-area (Ctrl+V), and click the Go button.<br/>
+	<kbd><img src="../images/paste.png"></kbd>
+</li>
+<li>Then the first question will be displayed. Choose the correct answer between options.<br/>
+	<kbd><img src="../images/question.png"></kbd>
+</li>
+<li>If you choose a wrong answer, the correct answer will be displayed, and this question will be repeated again later.<br/>
+	<kbd><img src="../images/answer.png"></kbd>
+</li>
+<li>Questions will continue until you finish choosing every correct answer at each question.<br/>
+	<kbd><img src="../images/finished.png"></kbd>
+</li>
+<li>You can change the column of question,<br/>
+	<kbd><img src="../images/change-column.png"></kbd>
+</li>
+<li>And question and answer will be reversed.<br/>
+	<kbd><img src="../images/question2.png"></kbd>
+</li>
+</ol>
+
+<h2>Input Data From File</h2>
+
+Instead of pasting data from clipboard, you can select your dictionary file.
+
+<ol type="1">
+<li>Edit your dictionary table in Excel, and then save this worksheet as a text file.
+	<ol type="i">
+	<li>Click "Save As" in the "File" menu to open the dialog.
+	</li>
+	<li>In the "Save as type" box, choose to save your Excel file as "CSV (.csv)" or "Unicode Text (.txt)".<br/>
+		<kbd><img src="../images/save-as-csv.png"></kbd>
+	</li>
+	</ol>
+</li>
+<li>Click the "Select File" button in the main page, and select the file you saved.<br/>
+	<kbd><img src="../images/select-file.png"></kbd>
+</li>
+</ol>
+
+<h2>For developers</h2>
+
+Source available at <a href="https://github.com/mochihashi/memorizer">GitHub</a>.
+
+</div>
+</body>
+</html>

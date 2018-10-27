@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="../../favicon.ico">
+<title>Memorizer에 대해서</title>
+
+<meta name="keywords" content="memorizer,편리한 학습,무료 틀,프리,외국어,던어" />
+<meta name="description" content="Memorizer: 단어등을 외우기 위한 편리한 도구입니다" />
+<meta property="og:url" content="https://mochihashi.github.io/memorizer/docs/kr/" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Memorizer: 단어등을 외우기 위한 편리한 도구입니다" />
+<meta property="og:description" content="단어리스트를 Excel로 만들고 붙여서 자신이 외우고 싶은 단어를 학습할 수 있습니다." />
+<meta property="og:site_name" content="mochihashi" />
+<meta property="og:image" content="https://mochihashi.github.io/memorizer/docs/images/image.png" />
+<meta name="twitter:card" content="summary">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/icon.css">
+</head>
+<body>
+<div class="head">
+<i class="material-icons">attach_file</i><span id="logo">Memorizer</span>
+</div>
+<div class="main">
+<div class="top-nav">
+<a href="../en/">English</a>
+&nbsp; <a href="../cn/">中文</a>
+&nbsp; <a href="../jp/">日本語</a>
+&nbsp; 한국어
+</div>
+
+<h1>Memorizer: 단어등을 외우기 위한 편리한 도구입니다</h1>
+
+<ul class="shareList">
+  <li class="shareList__item"><a class="shareList__link icon-facebook" href="http://www.facebook.com/share.php?u=https%3A%2F%2Fmochihashi.github.io%2Fmemorizer%2Fdocs%2Fkr%2F" target="_blank" rel="nofollow" title="Facebook"></a></li>
+  <li class="shareList__item"><a class="shareList__link icon-twitter" href="https://twiter.com/share?url=https%3A%2F%2Fmochihashi.github.io%2Fmemorizer%2Fdocs%2Fkr%2F" text="Memorizer: 단어등을 외우기 위한 편리한 도구입니다" target="_blank" rel="nofollow" title="Twitter"></a></li>
+  <li class="shareList__item"><a class="shareList__link icon-pocket" href="http://getpocket.com/edit?url=https%3A%2F%2Fmochihashi.github.io%2Fmemorizer%2Fdocs%2Fkr%2F&title=Memorizer%3a%20%eb%8b%a8%ec%96%b4%eb%93%b1%ec%9d%84%20%ec%99%b8%ec%9a%b0%ea%b8%b0%20%ec%9c%84%ed%95%9c%20%ed%8e%b8%eb%a6%ac%ed%95%9c%20%eb%8f%84%ea%b5%ac%ec%9e%85%eb%8b%88%eb%8b%a4" target="_blank" rel="nofollow" title="Pocket"></a></li>
+  <li class="shareList__item"><a class="shareList__link icon-feedly" href="https://feedly.com/i/subscription/feed/https%3A%2F%2Fmochihashi.github.io%2Fmemorizer%2Fdocs%2Fkr%2F" target="_blank" rel="nofollow" title="Feedly"></a></li>
+</ul>
+
+<a target="_blank" href="../../">메인 패아지</a> - https://mochihashi.github.io/memorizer/
+<br/><kbd><img src="../images/image.png"></kbd>
+
+<h2>특징</h2>
+
+<ul>
+<li>자신이 외우고 싶은 단어리스트를 Excel로 만들고 지정할 수 있습니다.</li>
+<li>오프라인 경우에도 사용할 수 있습니다. <a href="../memorizer.zip" download="memorizer.zip">memorizer.zip</a> 를 다운로드해서, 안에있는 index.html 를 브라우저로 엽니다.</li>
+</ul>
+
+<h2>데모 페이지</h2>
+
+<a target="_blank" href="../sample.html">sample.html</a>
+
+<h2>사용 방법</h2>
+
+<ol type="1">
+<li>Excel로 사전 테이블을 만들고 클립보드에 복사합니다(Ctrl+C). 테이블은 2열이상, 재1행은 제목 이름을 입력합니다. 사전 테이블의 예입니다:
+
+<table>
+<tr><th>English</th><th>Spanish</th></tr>
+<tr><td>Hello</td><td>Hola</td></tr>
+<tr><td>Good morning</td><td>Buenos días</td></tr>
+<tr><td>Goodbye</td><td>Adiós</td></tr>
+<tr><td>I don't know</td><td>No lo sé</td></tr>
+<tr><td>Sorry</td><td>Lo siento</td></tr>
+<tr><td>Thank you</td><td>Gracias</td></tr>
+<tr><td>Yes</td><td>Si</td></tr>
+<tr><td>No</td><td>No</td></tr>
+</table>
+
+<li>브라우저로 <a target="_blank" href="../../">메인 패아지</a> 를 연 후, 1번에서 복사한 클립보드의 내용을 붙여서(Ctrl+V) 「Go」버튼을 누릅니다.<br/>
+	<kbd><img src="../images/paste.png"></kbd>
+</li>
+<li>질문이 표시되면 정답을 선택합니다.<br/>
+	<kbd><img src="../images/question.png"></kbd>
+</li>
+<li>틀린 경우, 정답이 표시되고 틀린 질문은 나중에 다시 반복됩니다.<br/>
+	<kbd><img src="../images/answer.png"></kbd>
+</li>
+<li>모든 질문이 정답일 경우 질문은 끝납니다.<br/>
+	<kbd><img src="../images/finished.png"></kbd>
+</li>
+<li>타이틀의 열을 바꾸면,<br/>
+	<kbd><img src="../images/change-column.png"></kbd>
+</li>
+<li>질문의 열도 바뀝니다.<br/>
+	<kbd><img src="../images/question2.png"></kbd>
+</li>
+</ol>
+
+<h2>파일에서 입력하기</h2>
+
+클립보드에서 붙이는 방법 이외에 사진파일을 선택해도 됩니다.
+
+<ol type="1">
+<li>Excel에서 사전파일을 편집하여 워크시트를 텍스트파일로 저장합니다.
+	<ol type="i">
+	<li>「파일」 메뉴에서  「새이름으로 저장」을 누르면 다이얼로그가 열립니다.
+	</li>
+	<li>「포맷」 란에、「CSV (.csv)」또는「Unicode텍스트 (.txt)」를 선택하고 저장합니다.<br/>
+		<kbd><img src="../images/save-as-csv.png"></kbd>
+	</li>
+	</ol>
+</li>
+<li>메인 패아지에서, 「Select File」버튼을 누르고、저장한 텍스트파일을 선택합니다.<br/>
+	<kbd><img src="../images/select-file.png"></kbd>
+</li>
+</ol>
+
+<h2>개벌자용</h2>
+
+소스는 <a href="https://github.com/mochihashi/memorizer">GitHub</a> 에서 공개되어 있습니다.
+
+</div>
+</body>
+</html>
