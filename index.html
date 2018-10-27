@@ -132,6 +132,13 @@ function showQuestion(add, push) {
 		data.isEnd = true;
 		show('end'); show('before');
 		hide('question'); hide('question-button'); hide('question-option'); hide('prompt'); hide('page');
+		if(data.pages[1] == data.test.length) {
+			el('end-message').innerHTML = "Perfect! Great!!";
+			if(!data.isMute) { playAudio('lib/perfect.mp3'); }
+		} else {
+			el('end-message').innerHTML = "finished.";
+			if(!data.isMute) { playAudio('lib/end.mp3'); }
+		}
 	} else {
 		data.isEnd = false;
 		el('question').innerHTML = data.test[data.pos].key;
@@ -377,7 +384,7 @@ No	No</textarea>
 	<div id="question">question</div>
 	<div id="page">( 1 / 4 )</div>
 	<div id="answer">answer</div>
-	<div id="end">finished.<br/><button onclick="start();" title="retry"><i class="material-icons">refresh</i></button></div>
+	<div id="end"><span id="end-message">finished.</span><br/><button onclick="start();" title="retry"><i class="material-icons">refresh</i></button></div>
 </td>
 <td class="col-right">
 	<div id="question-button">
