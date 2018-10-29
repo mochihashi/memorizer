@@ -1,12 +1,12 @@
 var staticFiles = {};
 staticFiles.list = [
-	staticFiles.root,
-	staticFiles.root + 'lib/coin.mp3',
-	staticFiles.root + 'lib/csv.min.js',
-	staticFiles.root + 'lib/encoding.min.js',
-	staticFiles.root + 'lib/end.mp3',
-	staticFiles.root + 'lib/MaterialIcons-Regular.woff2',
-	staticFiles.root + 'lib/perfect.mp3'
+	'',
+	'lib/coin.mp3',
+	'lib/csv.min.js',
+	'lib/encoding.min.js',
+	'lib/end.mp3',
+	'lib/MaterialIcons-Regular.woff2',
+	'lib/perfect.mp3'
 ];
 
 staticFiles.cacheName = APP_VERSION;
