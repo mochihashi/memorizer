@@ -1,3 +1,4 @@
+var APP_VERSION = 'v1.0.0';
 var staticFiles = {};
 staticFiles.list = [
 	'',
@@ -21,7 +22,7 @@ for(var i = 0; i < staticFiles.list.length; i++) {
 self.addEventListener('install', function(evt) {
 	evt.waitUntil(
 		caches.open(staticFiles.cacheName).then(function(cache) {
-			return Promise.all(staticFiles.cacheName.list.map(function(url) {
+			return Promise.all(staticFiles.list.map(function(url) {
 				return fetch(new Request(url)).then(function(response) {
 					if(response.ok) return cache.put(response.url, response);
 				return Promise.reject(
