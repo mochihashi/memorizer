@@ -7,7 +7,9 @@ staticFiles.list = [
 	'lib/encoding.min.js',
 	'lib/end.mp3',
 	'lib/MaterialIcons-Regular.woff2',
-	'lib/perfect.mp3'
+	'lib/perfect.mp3',
+	'lib/script.js',
+	'lib/style.css'
 ];
 
 staticFiles.cacheName = APP_VERSION;
