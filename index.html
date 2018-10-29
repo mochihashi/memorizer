@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" href="favicon.ico">
+<link rel="manifest" href="manifest.json">
 <title>Memorizer</title>
 <script type="text/javascript" src="lib/csv.min.js"></script>
 <script type="text/javascript" src="lib/encoding.min.js"></script>
@@ -65,6 +66,7 @@ button i, .file i { margin-top: -3px; vertical-align: middle; }
 }
 </style>
 <script>
+if(navigator.serviceWorker) navigator.serviceWorker.register('sw.js', {scope: './'});
 function el(id) { return document.getElementById(id); }
 function show(id, display) { el(id).style.display = display ? display : 'block'; }
 function hide(id) { el(id).style.display = 'none'; }
