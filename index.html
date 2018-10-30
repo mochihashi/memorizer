@@ -7,13 +7,13 @@
 <link rel="manifest" href="manifest.json">
 <title>Memorizer</title>
 <script>
-var APP_VERSION = 'v1.0.4';
+var APP_VERSION = 'v1.0.5';
 if(navigator.serviceWorker) navigator.serviceWorker.register('sw.js', {scope: './'});
 </script>
 <script type="text/javascript" src="lib/csv.min.js"></script>
 <script type="text/javascript" src="lib/encoding.min.js"></script>
-<script type="text/javascript" src="lib/script.js?version=v1.0.4"></script>
-<link rel="stylesheet" href="lib/style.css?version=v1.0.4">
+<script type="text/javascript" src="lib/script.js?version=v1.0.5"></script>
+<link rel="stylesheet" href="lib/style.css?version=v1.0.5">
 </head>
 <body onLoad="onload()">
 <div id="index">
@@ -65,9 +65,9 @@ No	No</textarea>
 	<select onchange="changeColumn(this.options[this.selectedIndex].value);" id="select-column"></select>
 	<select onchange="changeColumn2(this.options[this.selectedIndex].value);" id="select-column2"></select>
 	<select onchange="changeFontSize(this.options[this.selectedIndex].value);">
-		<option value="S">Small</option>
-		<option value="M" selected>Medium</option>
-		<option value="L">Large</option>
+		<option value="S">S</option>
+		<option value="M" selected>M</option>
+		<option value="L">L</option>
 	</select>
 	<button onclick="toggleSearch();" title="Filter by text" id="button-search" off="true"><i class="material-icons">search</i></button>
 	<input type="text" id="search-text" value="" size="20" onchange="search();" />
