@@ -1,11 +1,11 @@
-Number	English	Chinese(PinYin)	Japanese(Romaji)	Spanish	French	German	Arabic	Malay	Vietnamese
-1	one	yī 	ichi	uno	un	eins	waa7id	satu	một
-2	two	èr 	ni	dos	deux	zwei	ithnaan	dua	hai
-3	three	sān 	san	tres	trois	drei	thalaatha	tiga	ba
-4	four	sì 	yon	cuatro	quatre	vier	arba3a	empat	bốn
-5	five	wǔ 	go	cinco	cinq	fünf	khamsa	lima	năm
-6	six	liù 	roku	seis	six	sechs	sitta	enam	sáu
-7	seven	qī 	nana	siete	sept	sieben	sab3a	tujuh	bảy
-8	eight	bā 	hachi	ocho	huit	acht	thamaaneya	lapan	tám
-9	nine	jiǔ 	kyuu	nueve	neuf	neun	tis3a	sembilan	chín
-10	ten	shí	juu	diez	dix	zehn	3ashara	sepuluh	mười
+Number	English	Chinese(PinYin)	Japanese(Romaji)	Spanish	French	German	Arabic	Hindi	Malay	Vietnamese
+1	one	yī 	ichi	uno	un	eins	waa7id	Ek	satu	một
+2	two	èr 	ni	dos	deux	zwei	ithnaan	Do	dua	hai
+3	three	sān 	san	tres	trois	drei	thalaatha	Teen	tiga	ba
+4	four	sì 	yon	cuatro	quatre	vier	arba3a	Char	empat	bốn
+5	five	wǔ 	go	cinco	cinq	fünf	khamsa	Panch	lima	năm
+6	six	liù 	roku	seis	six	sechs	sitta	Cheh	enam	sáu
+7	seven	qī 	nana	siete	sept	sieben	sab3a	Saat	tujuh	bảy
+8	eight	bā 	hachi	ocho	huit	acht	thamaaneya	Aath	lapan	tám
+9	nine	jiǔ 	kyuu	nueve	neuf	neun	tis3a	Nao	sembilan	chín
+10	ten	shí	juu	diez	dix	zehn	3ashara	Das	sepuluh	mười
