@@ -1,46 +1,46 @@
-Phonetic	Hiragana	Katakana
-a	あ	ア
-i	い	イ
-ɯ	う	ウ
-e	え	エ
-o	お	オ
-ka	か	カ
-kʲi	き	キ
-kɯ	く	ク
-ke	け	ケ
-ko	こ	コ
-sa	さ	サ
-ɕi	し	シ
-sɯ	す	ス
-se	せ	セ
-so	そ	ソ
-ta	た	タ
-tɕi	ち	チ
-tsɯ	つ	ツ
-te	て	テ
-to	と	ト
-na	な	ナ
-ɲi	に	ニ
-nɯ	ぬ	ヌ
-ne	ね	ネ
-no	の	ノ
-ha	は	ハ
-çi	ひ	ヒ
-ɸɯ	ふ	フ
-he	へ	ヘ
-ho	ほ	ホ
-ma	ま	マ
-mʲi	み	ミ
-mɯ	む	ム
-me	め	メ
-mo	も	モ
-ja	や	ヤ
-jɯ	ゆ	ユ
-jo	よ	ヨ
-ɾa	ら	ラ
-ɾʲi	り	リ
-ɾɯ	る	ル
-ɾe	れ	レ
-ɾo	ろ	ロ
-ɰa	わ	ワ
-ɴ	ん	ン
+Romaji	Hiragana	Katakana	Phonetic
+a	あ	ア	a
+i	い	イ	i
+u	う	ウ	ɯ
+e	え	エ	e
+o	お	オ	o
+ka	か	カ	ka
+ki	き	キ	kʲi
+ku	く	ク	kɯ
+ke	け	ケ	ke
+ko	こ	コ	ko
+sa	さ	サ	sa
+shi	し	シ	ɕi
+su	す	ス	sɯ
+se	せ	セ	se
+so	そ	ソ	so
+ta	た	タ	ta
+chi	ち	チ	tɕi
+tsu	つ	ツ	tsɯ
+te	て	テ	te
+to	と	ト	to
+na	な	ナ	na
+ni	に	ニ	ɲi
+nu	ぬ	ヌ	nɯ
+ne	ね	ネ	ne
+no	の	ノ	no
+ha	は	ハ	ha
+hi	ひ	ヒ	çi
+fu	ふ	フ	ɸɯ
+he	へ	ヘ	he
+ho	ほ	ホ	ho
+ma	ま	マ	ma
+mi	み	ミ	mʲi
+mu	む	ム	mɯ
+me	め	メ	me
+mo	も	モ	mo
+ya	や	ヤ	ja
+yu	ゆ	ユ	jɯ
+yo	よ	ヨ	jo
+ra	ら	ラ	ɾa
+ri	り	リ	ɾʲi
+ru	る	ル	ɾɯ
+re	れ	レ	ɾe
+ro	ろ	ロ	ɾo
+wa	わ	ワ	ɰa
+n	ん	ン	ɴ
