@@ -7,13 +7,13 @@
 <link rel="manifest" href="manifest.json">
 <title>Memorizer</title>
 <script>
-var APP_VERSION = 'v1.0.5';
+var APP_VERSION = 'v1.0.6';
 if(navigator.serviceWorker) navigator.serviceWorker.register('sw.js', {scope: './'});
 </script>
 <script type="text/javascript" src="lib/csv.min.js"></script>
 <script type="text/javascript" src="lib/encoding.min.js"></script>
-<script type="text/javascript" src="lib/script.js?version=v1.0.5"></script>
-<link rel="stylesheet" href="lib/style.css?version=v1.0.5">
+<script type="text/javascript" src="lib/script.js?version=v1.0.6"></script>
+<link rel="stylesheet" href="lib/style.css?version=v1.0.6">
 </head>
 <body onLoad="onload()">
 <div id="index">
@@ -61,6 +61,7 @@ No	No</textarea>
 	<button onclick="toggleOption();" title="Hide the answer options" id="button-option" off="true"><i class="material-icons">visibility_off</i></button>
 	<button onclick="toggleSequential();" title="Show questions at random" id="button-random"><i class="material-icons">shuffle</i></button>
 	<button onclick="toggleMute();" title="Mute the correct answer sound" id="button-mute" off="true"><i class="material-icons">volume_off</i></button>
+	<button onclick="togglePreview();" title="See all data" id="button-preview" off="true"><i class="material-icons">border_all</i></button>
 	<span id="filename"></span>
 	<select onchange="changeColumn(this.options[this.selectedIndex].value);" id="select-column"></select>
 	<select onchange="changeColumn2(this.options[this.selectedIndex].value);" id="select-column2"></select>
@@ -72,7 +73,7 @@ No	No</textarea>
 	<button onclick="toggleSearch();" title="Filter by text" id="button-search" off="true"><i class="material-icons">search</i></button>
 	<input type="text" id="search-text" value="" size="20" onchange="search();" />
 </div><!-- #test .head -->
-<div class="main">
+<div class="main" id="test-main">
 <table id="test-table">
 <tr>
 <td class="col-left">
@@ -100,7 +101,13 @@ No	No</textarea>
 <td></td>
 </tr>
 </table>
+
 </div><!-- #test .main -->
+
+<div id="test-data">
+<table class="with-border" id="test-data-table"></table>
+</div>
+
 </div><!-- #test -->
 </body>
 </html>

@@ -43,6 +43,18 @@ button i, .file i { margin-top: -3px; vertical-align: middle; }
 #end { font-size: 40px; display: none; }
 #search-text { display: none; }
 #select-column2 { display: none; }
+#test-data { padding: 20px; display: none; }
+table.with-border {
+	border: none; border-spacing: 0; border-right: 1px solid #ccc; border-bottom: 1px solid #ccc;
+}
+table.with-border td, table.with-border th {
+	border: none; border-top: 1px solid #ccc; border-left: 1px solid #ccc;
+	padding: 2px 8px 2px 8px; line-height: 2em;
+}
+table.with-border th {
+	background: #eee;
+}
+
 
 #test[fsize="S"] #question { font-size: 40px; }
 #test[fsize="S"] #answer { font-size: 20px; }
