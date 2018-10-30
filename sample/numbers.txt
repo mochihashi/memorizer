@@ -1,0 +1,11 @@
+Number	English	Chinese(PinYin)	Japanese(Romaji)	Spanish	French	German	Arabic	Malay
+1	one	yī 	ichi	uno	un	eins	waa7id	satu
+2	two	èr 	ni	dos	deux	zwei	ithnaan	dua
+3	three	sān 	san	tres	trois	drei	thalaatha	tiga
+4	four	sì 	yon	cuatro	quatre	vier	arba3a	empat
+5	five	wǔ 	go	cinco	cinq	fünf	khamsa	lima
+6	six	liù 	roku	seis	six	sechs	sitta	enam
+7	seven	qī 	nana	siete	sept	sieben	sab3a	tujuh
+8	eight	bā 	hachi	ocho	huit	acht	thamaaneya	lapan
+9	nine	jiǔ 	kyuu	nueve	neuf	neun	tis3a	sembilan
+10	ten	shí	juu	diez	dix	zehn	3ashara	sepuluh
