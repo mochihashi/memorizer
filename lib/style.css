@@ -8,7 +8,6 @@ button i, .file i { margin-top: -3px; vertical-align: middle; }
 .head input[type="text"]:hover, .head input[type="text"]:focus { border: 1px solid #2196f3; }
 .main textarea { border: 1px solid #aaa; line-height: 1.4; border-radius: 4px; font-size: 14px; }
 .main textarea:hover, .head input[type="text"]:focus { border: 1px solid #2196f3; }
-.preload { display: none; }
 #logo { font-size: 20px; font-family: 'Arial'; letter-spacing: 4px; margin-left: 8px; }
 #index .main { padding: 20px; line-height: 1.8em; }
 #index .main button, #index .main .file { cursor: pointer; padding: 4px 8px 4px 8px; font-size: 14px; font-weight: normal; border: none; border-radius: 4px; color: #000; background: #e0e0e0; box-shadow: 1px 1px 5px #666; white-space: nowrap; display: inline-block; vertical-align: middle; }

@@ -3,7 +3,7 @@
 This is a tool that helps you to memorize words or something.
 main page - https://mochihashi.github.io/memorizer/
 
-# About
+# Help
 
 <a target="_blank" href="https://mochihashi.github.io/memorizer/docs/en/">English</a>
 &nbsp; <a target="_blank" href="https://mochihashi.github.io/memorizer/docs/cn/">中文</a>
