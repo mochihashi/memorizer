@@ -96,7 +96,7 @@ ul.cards>li>a:hover {
 #test[fsize="L"] .main button, #test[fsize="S"] .main button i { font-size: 50px; }
 
 @media only screen and (max-width: 600px) {
-	#index .head { paddong: 8px; }
+	#index .head { padding: 8px; }
 	#index .main { padding: 20px; }
 	#index .foot { padding: 20px; }
 
