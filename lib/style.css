@@ -1,21 +1,30 @@
 body { padding:0px; margin:0px; background: #fff; }
-* { font-family:Roboto,Helvetica,Arial,sans-serif; box-sizing: border-box; }
+* { font-family:Avenir,Arial,sans-serif; box-sizing: border-box; }
 button i, .file i { margin-top: -3px; vertical-align: middle; }
 @font-face { font-family: 'Material Icons'; font-style: normal; font-weight: 400; src: url(MaterialIcons-Regular.woff2) format('woff2'); }
 .material-icons { font-family: 'Material Icons'; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; }
-.head { width: 100%; background: #333; box-shadow: 1px 1px 4px #666; padding: 8px; color: #fff; }
-.head input[type="text"] { background: #333; color: #fff; border: 1px solid #fff; line-height: 1.4; border-radius: 4px; font-size: 14px; }
+.head {
+	width: 100%; background: #333; box-shadow: 1px 1px 4px #666; padding: 8px; color: #fff;
+	background: #f90;
+	background-image: linear-gradient(#fa0, #f90);
+}
+.head a, .head a:link, .head a:visited, .head a:active,
+.foot a, .foot a:link, .foot a:visited, .foot a:active { color: #fff; text-decoration:none; }
+.head a:hover, .foot a:hover { color: #ddd; }
+.head input[type="text"] { background: #f90; color: #fff; border: 1px solid #fff; line-height: 1.4; border-radius: 4px; font-size: 14px; }
 .head input[type="text"]:hover, .head input[type="text"]:focus { border: 1px solid #2196f3; }
 .main textarea { border: 1px solid #aaa; line-height: 1.4; border-radius: 4px; font-size: 14px; }
 .main textarea:hover, .head input[type="text"]:focus { border: 1px solid #2196f3; }
 #logo { font-size: 20px; font-family: 'Arial'; letter-spacing: 4px; margin-left: 8px; }
-#index .main { padding: 20px; line-height: 1.8em; }
+#index .head { padding: 20px 30px 20px 30px; }
+#index .main { padding: 40px; line-height: 1.8em; }
 #index .main button, #index .main .file { cursor: pointer; padding: 4px 8px 4px 8px; font-size: 14px; font-weight: normal; border: none; border-radius: 4px; color: #000; background: #e0e0e0; box-shadow: 1px 1px 5px #666; white-space: nowrap; display: inline-block; vertical-align: middle; }
 #index .main button:hover, #index .main .file:hover { background: #bdbdbd; }
 #index .main button.primary, #index .main .file.primary { background: #2196f3; color: #fff; }
 #index .main button.primary:hover, #index .main .file.primary:hover { background: #1769aa; }
 #index .main .file input { display: none; }
-#index .foot { padding: 20px; background: #f9f9f9; font-size: 12px; color: #666; }
+#index .foot { padding: 20px 40px 20px 40px; background: #f90; font-size: 13px; color: #fff; }
+
 #test .main table { width: 100%; }
 #test .main td { text-align: center; vertical-align: middle; }
 #test { display: none; }
@@ -54,6 +63,29 @@ table.with-border th {
 	background: #eee;
 }
 
+ul.cards {
+	list-style-type: none; padding: 0px; margin: 0px;
+}
+ul.cards>li {
+	display: inline-block; padding: 0px; margin: 0px;
+}
+ul.cards>li>a {
+	display: inline-block;
+	margin: 10px;
+	padding: 10px 20px 10px 20px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: 1px 1px 4px #666;
+	text-decoration:none;
+	color: #333;
+	font-size: 1.1em;
+	font-weight: bold;
+	background: #fff;
+}
+ul.cards>li>a:hover {
+	background: #eee;
+}
+
 
 #test[fsize="S"] #question { font-size: 40px; }
 #test[fsize="S"] #answer { font-size: 20px; }
@@ -64,6 +96,10 @@ table.with-border th {
 #test[fsize="L"] .main button, #test[fsize="S"] .main button i { font-size: 50px; }
 
 @media only screen and (max-width: 600px) {
+	#index .head { paddong: 8px; }
+	#index .main { padding: 20px; }
+	#index .foot { padding: 20px; }
+
 	#test .main td { display: block; width: 100%; }
 	#test .main td.col-left { text-align: left; }
 	#test .main td.col-right { text-align: right; }

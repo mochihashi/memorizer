@@ -7,18 +7,20 @@
 <link rel="manifest" href="manifest.json">
 <title>Memorizer</title>
 <script>
-var APP_VERSION = 'v1.0.8';
+var APP_VERSION = 'v1.0.9';
 if(navigator.serviceWorker) navigator.serviceWorker.register('sw.js', {scope: './'});
 </script>
 <script type="text/javascript" src="lib/csv.min.js"></script>
 <script type="text/javascript" src="lib/encoding.min.js"></script>
-<script type="text/javascript" src="lib/script.js?version=v1.0.8"></script>
-<link rel="stylesheet" href="lib/style.css?version=v1.0.8">
+<script type="text/javascript" src="lib/script.js?version=v1.0.9"></script>
+<link rel="stylesheet" href="lib/style.css?version=v1.0.9">
 </head>
 <body onLoad="onload()">
 <div id="index">
 <div class="head">
+<a href="https://mochihashi.github.io/memorizer/data/">
 <i class="material-icons">attach_file</i><span id="logo">Memorizer</span>
+</a>
 </div><!-- #index .head -->
 <div class="main">
 This is a tool that helps you to memorize words or something.
@@ -42,7 +44,9 @@ No	No</textarea>
 <br/>Or drop your file here.
 </form>
 <h1>Study Data</h1>
-<a target="_blank" href="https://mochihashi.github.io/memorizer/data/">All data</a>
+<ul class="cards">
+<li><a href="https://mochihashi.github.io/memorizer/data/">All data</a></li>
+</ul>
 <h1>Help</h1>
 <a target="_blank" href="https://mochihashi.github.io/memorizer/docs/en/">English</a>
 &nbsp; <a target="_blank" href="https://mochihashi.github.io/memorizer/docs/cn/">中文</a>
@@ -56,7 +60,8 @@ No	No</textarea>
 
 <div id="test">
 <div class="head">
-	<button onclick="goHome();" title="Home"><i class="material-icons">home</i></button>
+	<button onclick="location.href='https://mochihashi.github.io/memorizer/data/';" title="Home"><i class="material-icons">home</i></button>
+	<button onclick="edit();" title="Edit data"><i class="material-icons">edit</i></button>
 	<button onclick="start();" title="Retry"><i class="material-icons">refresh</i></button>
 	<button onclick="toggleOption();" title="Hide the answer options" id="button-option" off="true"><i class="material-icons">visibility_off</i></button>
 	<button onclick="toggleSequential();" title="Show questions at random" id="button-random"><i class="material-icons">shuffle</i></button>
