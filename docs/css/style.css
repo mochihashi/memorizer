@@ -4,6 +4,8 @@ kbd { border: 1px solid #aaa; border-radius: 4px; padding: 4px; margin: 0px; dis
 kbd img { max-width: 800px; }
 h1 { color: #555; font-size: 3em; line-height: 1em; }
 h2 { color: #333; font-size: 2em; line-height: 1em; }
+h3 { color: #555; font-size: 1.5em; line-height: 1em; }
+
 .head {
 	padding: 20px 30px 20px 30px; width: 100%;
 	background: #f90;
@@ -64,11 +66,14 @@ table td { background: #fff; }
 
 table.feature { border: none; }
 table.feature td { border: none; padding: 20px; background: none; }
-table.feature td h3 { font-size: 1.5em; line-height: 1em; margin: 0px; padding: 0px; color: #555; }
+table.feature td h3 { margin: 0px; padding: 0px; }
 table.feature td.img { border: none; padding: 10px; width: 220px; }
 table.feature td.img img { width: 200px; border-radius:4px; }
 
 @media only screen and (max-width: 800px) {
+	h1 { font-size: 2em; }
+	h2 { font-size: 1.5em; }
+	h3 { font-size: 1.2em; }
 	kbd img { width: 100%; }
 	.head { padding: 8px; }
 	.page, .foot { padding: 20px; }
