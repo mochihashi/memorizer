@@ -38,7 +38,7 @@ button i, .file i { margin-top: -3px; vertical-align: middle; }
 #test .head #filename { margin: 0px 16px 0px 16px; }
 #test .head select { background: none; border: none; padding: 0px; padding-right: 30px; font-size: 14px; color: #fff; }
 #test .main button { cursor: pointer; padding: 20px; margin: 4px; font-size: 30px; border: none; background: none; border-radius: 8px; color: #2489ce; }
-#test .main #question-option button { box-shadow: 1px 1px 4px #666; }
+#test .main #question-button button, #test .main #question-option button { box-shadow: 1px 1px 4px #666; }
 #test .main button.primary { color: #f50057; }
 #test .main button:hover { background: #eee; }
 #test .main button i { font-size: 30px; }
