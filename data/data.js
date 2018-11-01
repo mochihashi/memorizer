@@ -61,7 +61,7 @@ $(function(){
 		'<ul class="share-icons">'
 		+ '<li><a class="icomoon icon-facebook" href="http://www.facebook.com/share.php?u=' + urlEnc + '" target="_blank" rel="nofollow" title="Facebook"></a></li>'
 		+ '<li><a class="icomoon icon-twitter" href="https://twiter.com/share?url=' + urlEnc + '" text="' + title + '" target="_blank" rel="nofollow" title="Twitter"></a></li>'
-		+ '<li><a class="icomoon icon-hatebu" href="http://b.hatena.ne.jp/add?mode=confirm&url=' + urlEnc + '&title=' + titleEnc + '" target="_blank" rel="nofollow" title="はてなブックマーク"></a></li>'
+		+ '<li><a class="icomoon icon-hatebu" href="http://b.hatena.ne.ja/add?mode=confirm&url=' + urlEnc + '&title=' + titleEnc + '" target="_blank" rel="nofollow" title="はてなブックマーク"></a></li>'
 		+ '<li><a class="icomoon icon-pocket" href="http://getpocket.com/edit?url=' + urlEnc + '&title=' + titleEnc + '" target="_blank" rel="nofollow" title="Pocket"></a></li>'
 		+ '<li><a class="icomoon icon-feedly" href="https://feedly.com/i/subscription/feed/' + urlEnc + '" target="_blank" rel="nofollow" title="Feedly"></a></li>'
 		+ '</ul><br/>'
