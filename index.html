@@ -28,7 +28,9 @@ This is a tool that helps you to memorize words or something.
 <form>
 Copy cells in Excel, paste them into this text-area and click the Go button.
 <br/>Note that the table must have more than two columns, and a title row.
-<br/><textarea rows="9" cols="40" id="dictionary-table">English	Spanish
+<br/><button class="primary" onclick="parseText(el('dictionary-table').value);return false;"><i class="material-icons">play_arrow</i> Go</button>
+<button onclick="var o=el('dictionary-table');o.setSelectionRange(0,o.value.length);o.focus();return false;"><i class="material-icons">select_all</i> Select All</button>
+<br/><textarea id="dictionary-table">English	Spanish
 Hello	Hola
 Good morning	Buenos días
 Goodbye	Adiós
@@ -37,9 +39,6 @@ Sorry	Lo siento
 Thank you	Gracias
 Yes	Si
 No	No</textarea>
-<br/><button class="primary" onclick="parseText(el('dictionary-table').value);return false;"><i class="material-icons">play_arrow</i> Go</button>
-<button onclick="var o=el('dictionary-table');o.setSelectionRange(0,o.value.length);o.focus();return false;"><i class="material-icons">select_all</i> Select All</button>
-<br/>
 <br/>Or select your [.csv | .txt] file. <label for="file" class="file"><i class="material-icons">folder_open</i> Select File<input type="file" id="file" /></label>
 <br/>Or drop your file here.
 </form>
