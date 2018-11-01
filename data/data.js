@@ -1,3 +1,8 @@
+function array2map(arr) { var map = {}; for(var i = 0; i < arr.length; i++) { map[arr[i]] = arr[i]; } return map; }
+
+var IMG_EXTS = array2map("jpg,jpeg,gif,png".split(','));
+var AUDIO_EXTS = array2map("mp3,wav".split(','));
+
 function nvl(val, whenNull) { if(val) return val; if(whenNull) return whenNull; return ''; }
 function addScript(src, async) {
 	var s = document.createElement("script");
@@ -7,23 +12,41 @@ function addScript(src, async) {
 
 $(function(){
 	addScript('/static/pixel/tracking.js', true);
+	addScript('/static/js/csv.min.js', true);
 	
 	$('.tsv-data').each(function(){
 		var text = this.innerHTML.trim();
 		if(!text) return;
 		var idx = $(this).attr('idx');
-		var rows = text.split("\n");
+		var arr = CSV.parse(text, {delimiter: '\t'});
 		var html = '<button class="primary" onclick="startTest(\'' + nvl(idx) + '\');"><i class="material-icons">play_arrow</i> Start Test</button>';
 		html += '<table>';
 		html += '<tr>';
-		var cols = rows[0].split("\t");
+		var cols = arr[0];
 		for(var c = 0; c < cols.length; c++) { html += '<th>' + nvl(cols[c]) + '</th>'; }
 		html += '</tr>';
-		for(var r = 1; r < rows.length; r++) {
+		for(var r = 1; r < arr.length; r++) {
 			html += '<tr>';
-			var cols = rows[r].split("\t");
+			var cols = arr[r];
 			for(var c = 0; c < cols.length; c++) {
-				html += '<td>' + nvl(cols[c]) + '</td>';
+				var val = cols[c] || '';
+				val = val.toString();
+				val = val.replace(/</g, "&lt;");
+				val = val.replace(/>/g, "&gt;");
+				if(val.indexOf("\n") >= 0) {
+					val = val.replace(/\n/g, "<br/>");
+				} else {
+					var p = val.lastIndexOf('.');
+					if(p > 0) {
+						var ext = val.slice(p + 1);
+						if(IMG_EXTS[ext]) {
+							val = '<img src="' + val + '" />';
+						} else if(AUDIO_EXTS[ext]) {
+							val = '<audio src="' + val + '" controls>' + val + '</audio>';
+						}
+					}
+				}
+				html += '<td>' + val + '</td>';
 			}
 			html += '</tr>';
 		}
